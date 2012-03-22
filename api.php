@@ -1,13 +1,6 @@
 <?php
-$con = mysql_connect('localhost', 'root', '');
-if (!$con)	{
-	die ("Could not connect to MySQL database ".mysql_error());
-}
-
-$con_db = mysql_select_db('filehunt', $con);
-if (!$con_db) {
-	die ("Could not select database ".mysql_error());
-}
+require_once('../filehunt/lib.php');
+mysql_selector();
 
 if($_SERVER['HTTP_HOST'] == 'localhost') error_reporting(0);
 
