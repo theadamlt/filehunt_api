@@ -1,12 +1,11 @@
 <?php
 require_once('../filehunt/lib.php');
 mysql_selector();
-
 if($_SERVER['HTTP_HOST'] == 'localhost') error_reporting(0);
 
 if($_GET['func'] == 'login')
 {	
-	$sql = "SELECT * FROM users WHERE username = '$_GET[u]' AND password = '$_GET[p]'";
+	$sql = "SELECT rowID, username, email, last_sub_check FROM users WHERE username = '$_GET[u]' AND password = '$_GET[p]'";
 	$result = mysql_query($sql);
 
 	echo json_encode(mysql_fetch_array($result));
